@@ -57,7 +57,7 @@ for i = 1:cellNum
 
     tempTab.velocityPerFrameMicronPerSec = tempTab.DistanceMoveMicron ./tempTab.FrameInterval;
 
-    tempTab.circularity = tempTab.Area_Pixel2 ./(tempTab.Perimeter_Pixel .^2);
+    tempTab.circularity = (4 * pi * tempTab.Area_Pixel2) ./(tempTab.Perimeter_Pixel .^2);
 
     tempTab.somaness = (tempTab.RadiusAtBrightestPoint_Pixel .^2) ./tempTab.Area_Pixel2;
 
