@@ -11,7 +11,7 @@ end
 areaLim = 100; % pixels ^2
 frameNo = 3;
 imageSz = 2048; % in pixels
-boundaryLim = 25;  % in microns
+boundaryLim = 25;   % in microns
 
 %% read in data
 microgliaTab = readtable(csvFilepath);
@@ -108,6 +108,6 @@ end
 
 [folder, name] = fileparts(csvFilepath);
 
-writetable(microgliaTab,fullfile(folder,[name '_corrected.xlsx']));
+writetable(microgliaTab,fullfile(folder,[name '_cleaned.xlsx']));
 
 end
