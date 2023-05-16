@@ -1,14 +1,18 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3705064606" file="C:\PostDoc_Docs\code\matlab\microglia\microgliaTimelapseClusterCellApp.prj" location="C:\PostDoc_Docs\code\matlab\microglia" name="microgliaTimelapseClusterCellApp" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2432739358" file="E:\PostDoc_Docs\code\matlab\microglia\microgliaTimelapseClusterCellApp.prj" location="E:\PostDoc_Docs\code\matlab\microglia" name="microgliaTimelapseClusterCellApp" target="target.mlapps" target-name="Package App">
     <param.appname>microgliaTimelapseClusterCellApp</param.appname>
     <param.authnamewatermark />
     <param.email />
     <param.company />
-    <param.icon />
-    <param.icons />
+    <param.icon>${PROJECT_ROOT}\microgliaTimelapseClusterCellApp_resources\icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\microgliaTimelapseClusterCellApp_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\microgliaTimelapseClusterCellApp_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\microgliaTimelapseClusterCellApp_resources\icon_16.png</file>
+    </param.icons>
     <param.summary />
     <param.description />
-    <param.screenshot>C:\Users\nms125\AppData\Local\Temp\tp99335d2f_f950_4498_a6c1_fd9467252803.png</param.screenshot>
+    <param.screenshot>C:\Users\nms125\AppData\Local\Temp\tp69c4da7d_b1e2_45a2_aa80_c4e5dfb16d4a.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name />
     <param.products.id />
@@ -20,8 +24,6 @@
       <param.authnamewatermark />
       <param.email />
       <param.company />
-      <param.icon />
-      <param.icons />
       <param.summary />
       <param.description />
       <param.version />
@@ -35,13 +37,14 @@
       <file>${PROJECT_ROOT}\microgliaTimelapseClusterCellPicker.mlapp</file>
     </fileset.main>
     <fileset.depfun>
-      <file>C:\PostDoc_Docs\code\matlab\retinaCaImaging\distinguishable_colors.m</file>
-      <file>C:\PostDoc_Docs\code\matlab\retinaCaImaging\read_Tiffs.m</file>
+      <file>${PROJECT_ROOT}\cleanMicrogliaCSV_v2.m</file>
+      <file>E:\PostDoc_Docs\code\matlab\retinaCaImaging\distinguishable_colors.m</file>
+      <file>E:\PostDoc_Docs\code\matlab\retinaCaImaging\read_Tiffs.m</file>
     </fileset.depfun>
     <fileset.resources />
     <fileset.package />
     <build-deliverables>
-      <file location="C:\PostDoc_Docs\code\matlab" name="microglia" optional="false">C:\PostDoc_Docs\code\matlab\microglia</file>
+      <file location="E:\PostDoc_Docs\code\matlab" name="microglia" optional="false">E:\PostDoc_Docs\code\matlab\microglia</file>
     </build-deliverables>
     <workflow />
     <matlab>

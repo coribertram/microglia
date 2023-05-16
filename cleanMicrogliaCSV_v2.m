@@ -1,5 +1,13 @@
 function cleanMicrogliaCSV_v2(csvFilepath)
-
+% This function cleans the csv file created by the microglia morphometry
+% plugin. The file has to have been run through the cluster cell/blood
+% vessel area app first. The script sets a bunch of remove flags for
+% objects which are too small and appear for too few frames (see defaults)
+%
+% Inputs: csvFilepath- fullfile to the microglia morphometry .csv file OR
+%                      leave blank to open a file selection window
+%
+% Written by MA Savage
 %% defaults
 if nargin < 1 || isempty(csvFilepath)
    [file, path] = uigetfile({'*.csv'},...
@@ -12,6 +20,7 @@ areaLim = 100; % pixels ^2
 frameNo = 3;
 imageSz = 2048; % in pixels
 boundaryLim = 25;   % in microns
+FrameIntervalDefault = 60; % default of 60s if cannot find it from the image metadata
 
 %% read in data
 microgliaTab = readtable(csvFilepath);
@@ -93,7 +102,13 @@ for i = 1:length(objLab)
 
     tempTab.DistanceMoveMicron =  tempTab.DistanceMovePix * tempTab.VoxelSpacing_X(1);
 
-    tempTab.velocityPerFrameMicronPerSec = tempTab.DistanceMoveMicron ./tempTab.FrameInterval;
+    % checks if the frame interval was imported properly from the image
+    % metadata
+    if tempTab.FrameInterval(1) == 0 || isempty(tempTab.FrameInterval(1))
+        tempTab.velocityPerFrameMicronPerSec = tempTab.DistanceMoveMicron ./FrameIntervalDefault;
+    else
+        tempTab.velocityPerFrameMicronPerSec = tempTab.DistanceMoveMicron ./tempTab.FrameInterval;
+    end
 
     tempTab.circularity = (4 * pi * tempTab.Area_Pixel2) ./(tempTab.Perimeter_Pixel .^2);
 
@@ -108,6 +123,10 @@ end
 
 [folder, name] = fileparts(csvFilepath);
 
-writetable(microgliaTab,fullfile(folder,[name '_cleaned.xlsx']));
+if contains(name,'_cleaned')
+    writetable(microgliaTab,fullfile(folder,[name '.xlsx']));
+else
+    writetable(microgliaTab,fullfile(folder,[name '_cleaned.xlsx']));
+end
 
 end
