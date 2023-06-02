@@ -123,7 +123,7 @@ end
 
 [folder, name] = fileparts(csvFilepath);
 
-if contains(name,'_cleaned')
+if endsWith(name,'_cleaned')
     writetable(microgliaTab,fullfile(folder,[name '.xlsx']));
 else
     writetable(microgliaTab,fullfile(folder,[name '_cleaned.xlsx']));

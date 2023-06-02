@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2432739358" file="E:\PostDoc_Docs\code\matlab\microglia\microgliaTimelapseClusterCellApp.prj" location="E:\PostDoc_Docs\code\matlab\microglia" name="microgliaTimelapseClusterCellApp" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1496104691" file="E:\PostDoc_Docs\code\matlab\microglia\microgliaTimelapseClusterCellApp.prj" location="E:\PostDoc_Docs\code\matlab\microglia" name="microgliaTimelapseClusterCellApp" target="target.mlapps" target-name="Package App">
     <param.appname>microgliaTimelapseClusterCellApp</param.appname>
     <param.authnamewatermark />
     <param.email />
@@ -12,7 +12,7 @@
     </param.icons>
     <param.summary />
     <param.description />
-    <param.screenshot>C:\Users\nms125\AppData\Local\Temp\tp69c4da7d_b1e2_45a2_aa80_c4e5dfb16d4a.png</param.screenshot>
+    <param.screenshot>C:\Users\nms125\AppData\Local\Temp\tp07bf3bd7_1958_495a_9539_cd299ffa3d72.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name />
     <param.products.id />
