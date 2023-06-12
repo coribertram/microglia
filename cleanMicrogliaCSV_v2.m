@@ -119,14 +119,19 @@ for i = 1:length(objLab)
     microgliaTab(microgliaTab.Object_Label == objLab(i),:) = tempTab;
 end
 
+%% clean to only valid objects
+microgliaTabValid = microgliaTab(microgliaTab.object2Remove == 0,:);
+
 %% save the struct 
 
 [folder, name] = fileparts(csvFilepath);
 
 if endsWith(name,'_cleaned')
     writetable(microgliaTab,fullfile(folder,[name '.xlsx']));
+     writetable(microgliaTabValid,fullfile(folder,[name '_valid.xlsx']));
 else
     writetable(microgliaTab,fullfile(folder,[name '_cleaned.xlsx']));
+    writetable(microgliaTabValid,fullfile(folder,[name '_cleaned_valid.xlsx']));
 end
 
 end
