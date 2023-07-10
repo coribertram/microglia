@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1322834008" file="E:\PostDoc_Docs\code\matlab\microglia\microgliaTimelapseClusterCellApp.prj" location="E:\PostDoc_Docs\code\matlab\microglia" name="microgliaTimelapseClusterCellApp" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1895265269" file="E:\PostDoc_Docs\code\matlab\microglia\microgliaTimelapseClusterCellApp.prj" location="E:\PostDoc_Docs\code\matlab\microglia" name="microgliaTimelapseClusterCellApp" target="target.mlapps" target-name="Package App">
     <param.appname>microgliaTimelapseClusterCellApp</param.appname>
     <param.authnamewatermark />
     <param.email />
@@ -12,7 +12,7 @@
     </param.icons>
     <param.summary />
     <param.description />
-    <param.screenshot>C:\Users\nms125\AppData\Local\Temp\tpd4d50c3a_7779_4b46_a454_6f33cc0bb57b.png</param.screenshot>
+    <param.screenshot>C:\Users\nms125\AppData\Local\Temp\tp30869a4d_2b25_40bb_a6e6_098bb4095de1.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name />
     <param.products.id />
@@ -38,8 +38,9 @@
     </fileset.main>
     <fileset.depfun>
       <file>${PROJECT_ROOT}\cleanMicrogliaCSV_v2.m</file>
-      <file>E:\PostDoc_Docs\code\matlab\retinaCaImaging\distinguishable_colorsMS.m</file>
-      <file>E:\PostDoc_Docs\code\matlab\retinaCaImaging\read_Tiffs.m</file>
+      <file>${PROJECT_ROOT}\distinguishable_colorsMS.m</file>
+      <file>${PROJECT_ROOT}\read_Tiffs.m</file>
+      <file>E:\PostDoc_Docs\code\matlab\retinaCaImaging\distinguishable_colors.m</file>
     </fileset.depfun>
     <fileset.resources />
     <fileset.package />
