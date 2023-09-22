@@ -105,6 +105,7 @@ for i =1:length(rawImagesFilepaths)
     %
 
     % save each subject image individually
+    subjectImage = uint8(rescale(subjectImage)*256);
     for q = 1:size(subjectImage,3)
         imwrite(subjectImage(:,:,q),fullfile(saveDir, ...
             ['sub-' fileRenames{i}], ...
@@ -115,7 +116,8 @@ for i =1:length(rawImagesFilepaths)
     % save each mask image individually
     for q = 1:size(subjectImage,3)
         imageTemp = logical(maskImage(:,:,q));
-        imageTemp = uint16(imageTemp * (2^16));
+%         imageTemp = uint16(imageTemp * (2^16));
+        imageTemp = uint8(imageTemp * (2^8));
         imwrite(imageTemp,fullfile(saveDir, ...
             'derivatives',...
             'labels',...
