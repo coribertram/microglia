@@ -20,10 +20,21 @@ timelapseTif = read_Tiffs(timelapsePath);
 
 
 %% run first classification
+tic
 reclassImage = trackMicrogliaMasks(masksTif);
+toc
 
+
+%% create LUT image
+% IDs = unique(reclassImage(:));
+% IDs = [IDs' IDs(end)+1: IDs(end)+100];
+% testIm = uint16(zeros(size(reclassImage,[1 2])));
+% 
+% LUT = distinguishable_colors(max(IDs),'k');
+% reclassImage = cat(3,testIm,reclassImage);
 %% load into FIJI
 reclassImageImp = MIJ.createImage('Label Masks',reclassImage,1);
+reclassImageImp.setLut( LUT)
 ij.IJ.run("Glasbey on Dark");
 ij.IJ.run("Macro...", "code=v=v%255");
 
@@ -56,8 +67,13 @@ while ~happy
 
 %             ij.IJ.run(reclassImageImp, "Glasbey modulus for 16bit count masks", "");
             
-        case 'Save Masks'
+        case 'Save Masks and Close'
             happy = true;
+
+        case 'Save and Continue Curation'
+            saveIm = MIJ.getImage('Label Masks');
+            saveastiff(saveIm, labelMasksPath);
+
         case ''
 
     end

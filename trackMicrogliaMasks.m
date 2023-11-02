@@ -9,7 +9,7 @@ hardCentroidDistLimPix = 75; % search radius in pixels
 
 try
     gpuArray(1);
-    canUseGPU=true;
+    canUseGPU=false;
 catch
     canUseGPU=false;
 end
