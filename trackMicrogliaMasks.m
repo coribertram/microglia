@@ -9,7 +9,7 @@ hardCentroidDistLimPix = 75; % search radius in pixels
 
 try
     gpuArray(1);
-    canUseGPU=false;
+    canUseGPU=true;
 catch
     canUseGPU=false;
 end
@@ -73,6 +73,7 @@ for i = 1: size(masks,3)-1
         nextImage = masks(:,:,i+1);
     end
 
+
     nextImProps =  struct2cell(regionprops(nextImage, "PixelIdxList"));
 
     % clean image props to remove blanks and very small objects
@@ -81,6 +82,21 @@ for i = 1: size(masks,3)-1
 
     nextImage = changem(nextImage, [zeros(length(nextImFilterNums),1)], [nextImFilterNums]); % replace all small objects with zero
     nextImage =  changem(nextImage, [0:length(unique(nextImage))-1], [unique(nextImage)]); % renumber the array
+
+    % split and recount discontinous label image
+    if canUseGPU == true
+        nextImage = gather(nextImage);
+
+        nextImageCC = bwconncomp(nextImage);
+        nextImage = labelmatrix(nextImageCC);
+
+        nextImage = gpuArray(nextImage);
+
+    else
+        nextImageCC = bwconncomp(nextImage);
+        nextImage = labelmatrix(nextImageCC);
+    end
+   
 
     %     % get filtered image objects
     %     curImPropsFiltered = struct2cell(regionprops(currImage, "PixelIdxList"));

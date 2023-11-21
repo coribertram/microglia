@@ -34,7 +34,7 @@ toc
 % reclassImage = cat(3,testIm,reclassImage);
 %% load into FIJI
 reclassImageImp = MIJ.createImage('Label Masks',reclassImage,1);
-reclassImageImp.setLut( LUT)
+% reclassImageImp.setLut( LUT)
 ij.IJ.run("Glasbey on Dark");
 ij.IJ.run("Macro...", "code=v=v%255");
 
