@@ -4,8 +4,11 @@ function microgliaMaskCuration(labelMasksPath)
 if nargin < 1 || isempty(labelMasksPath)
     [file, path] = uigetfile({'*.tif'},...
         'Label Masks File Selector');
-
+if nargin < 1 || isempty(filePath)
+    [file, path] = uigetfile({'*.xlsx'},...
+        'Excel File Selector');
     labelMasksPath = fullfile(path,file);
+    filePath = fullfile(path,file);
 end
 
 intializeMIJ;
