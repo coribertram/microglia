@@ -1,14 +1,15 @@
-function microgliaMaskCuration(labelMasksPath)
+function microgliaMaskCuration(labelMasksPath, invertImFlag)
 
 %% defaults
 if nargin < 1 || isempty(labelMasksPath)
     [file, path] = uigetfile({'*.tif'},...
         'Label Masks File Selector');
-if nargin < 1 || isempty(filePath)
-    [file, path] = uigetfile({'*.xlsx'},...
-        'Excel File Selector');
+
     labelMasksPath = fullfile(path,file);
-    filePath = fullfile(path,file);
+end
+
+if nargin < 2 || isempty(invertImFlag)
+    invertImFlag = 0;
 end
 
 intializeMIJ;
@@ -24,7 +25,7 @@ timelapseTif = read_Tiffs(timelapsePath);
 
 %% run first classification
 tic
-reclassImage = trackMicrogliaMasks(masksTif);
+reclassImage = trackMicrogliaMasks(masksTif,[],invertImFlag);
 toc
 
 
